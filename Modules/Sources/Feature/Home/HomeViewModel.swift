@@ -5,28 +5,30 @@
 //  Created by Ara Hakobyan on 3/28/24.
 //
 
-import Foundation
 import Combine
+import Models
+import Navigator
+import Networking
 
-protocol HomeViewModel: ObservableObject {
-    var products: [Product] { get set }
+public protocol HomeViewModel: ObservableObject {
+    var products: [Product]? { get set }
     
     func fetchProducts()
     func showDetail(for product: Product)
 }
 
-final class HomeViewModelImpl: HomeViewModel {
+final public class HomeViewModelImpl: HomeViewModel {
     private let service: ApiService
     private let navigator: Navigator<Route>
     
-    @Published var products: [Product] = []
+    @Published public var products: [Product]?
     
-    init(service: ApiService, navigator: Navigator<Route>) {
+    public init(service: ApiService, navigator: Navigator<Route>) {
         self.service = service
         self.navigator = navigator
     }
     
-    @MainActor func fetchProducts() {
+    @MainActor public func fetchProducts() {
         Task {
             do {
                 products = try await service.fetchProducts()
@@ -36,7 +38,7 @@ final class HomeViewModelImpl: HomeViewModel {
         }
     }
     
-    func showDetail(for product: Product) {
+    public func showDetail(for product: Product) {
         navigator.push(.detail(product.id))
     }
 }

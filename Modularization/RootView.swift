@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import Navigator
+import Home
+import Detail
 
 //struct RootView: View {
 //    @StateObject var viewModel: RootViewModel

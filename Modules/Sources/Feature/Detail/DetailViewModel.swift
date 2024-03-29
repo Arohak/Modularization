@@ -5,29 +5,31 @@
 //  Created by Ara Hakobyan on 3/28/24.
 //
 
-import Foundation
 import Combine
+import Models
+import Navigator
+import Networking
 
-protocol DetailViewModel: ObservableObject {
+public protocol DetailViewModel: ObservableObject {
     var product: Product? { get set }
     func fetchProduct()
 }
 
-final class DetailViewModelImpl: DetailViewModel {
+final public class DetailViewModelImpl: DetailViewModel {
     private let service: ApiService
     private let navigator: Navigator<Route>
 
     private let id: Int
     
-    @Published var product: Product?
+    @Published public var product: Product?
     
-    init(id: Int, service: ApiService, navigator: Navigator<Route>) {
+    public init(id: Int, service: ApiService, navigator: Navigator<Route>) {
         self.id = id
         self.service = service
         self.navigator = navigator
     }
     
-    @MainActor func fetchProduct() {
+    @MainActor public func fetchProduct() {
         Task {
             product = try? await service.fetchProduct(id)
         }

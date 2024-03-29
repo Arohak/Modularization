@@ -5,7 +5,7 @@
 //  Created by Ara Hakobyan on 3/29/24.
 //
 
-import Foundation
+import Combine
 
 public final class Navigator<Route: Hashable>: ObservableObject {
     @Published public var route = [Route]()
@@ -27,7 +27,7 @@ public extension Navigator {
     }
 }
 
-enum Route: Hashable {
+public enum Route: Hashable {
     case home
     case detail(Int)
 }

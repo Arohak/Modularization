@@ -1,5 +1,5 @@
 //
-//  ModularizationApp.swift
+//  App.swift
 //  Modularization
 //
 //  Created by Ara Hakobyan on 3/28/24.

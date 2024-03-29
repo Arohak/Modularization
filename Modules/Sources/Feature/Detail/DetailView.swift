@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import Models
 
-struct DetailView<VM: DetailViewModel>: View {
+public struct DetailView<VM: DetailViewModel>: View {
     @StateObject var vm: VM
     
-    var body: some View {
+    public init(vm: VM) {
+        _vm = StateObject(wrappedValue: vm)
+    }
+    
+    public var body: some View {
         VStack {
             if let product = vm.product {
                 ProductView(product: product)
