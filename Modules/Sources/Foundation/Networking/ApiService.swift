@@ -33,7 +33,7 @@ extension ApiService {
     
     public static let mock = Self (
         fetchProducts: {
-            [product, product, product]
+            Array(repeating: product, count: 20)
         }, fetchProduct: { _ in
             product
         }

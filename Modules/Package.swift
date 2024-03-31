@@ -75,10 +75,10 @@ let package = Package(
                 
                 // UI
 //                .target(name: "Resources"),
-                .target(name: "Views"),
+                .target(name: "Views")
                 
                 // Third Party
-                .byName(name: "Kingfisher")
+//                .byName(name: "Kingfisher")
             ],
             path: "Sources/Feature/Detail"
 //            resources: [.process("Resources/Process")]

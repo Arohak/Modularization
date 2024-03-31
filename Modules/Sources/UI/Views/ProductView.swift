@@ -9,25 +9,29 @@ import Foundation
 import SwiftUI
 
 public struct ProductView: View {
-    let product: Product
-    
-    public init(product: Product) {
-        self.product = product
+    let brand: String
+    let title: String
+    let price: Int
+
+    public init(brand: String, title: String, price: Int) {
+        self.brand = brand
+        self.title = title
+        self.price = price
     }
     
     public var body: some View {
         VStack() {
             HStack {
                 Spacer()
-                Text(product.brand)
+                Text(brand)
                     .font(.title)
                     .foregroundStyle(.orange)
                 Spacer()
             }
             HStack {
-                Text(product.title)
+                Text(title)
                     .font(.title2)
-                Text("$ \(product.price)")
+                Text("$ \(price)")
                     .font(.title2)
                     .foregroundStyle(.gray)
                 Spacer()

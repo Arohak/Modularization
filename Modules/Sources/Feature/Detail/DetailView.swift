@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Models
+import Views
 
 public struct DetailView<VM: DetailViewModel>: View {
     @StateObject var vm: VM
@@ -18,7 +19,7 @@ public struct DetailView<VM: DetailViewModel>: View {
     public var body: some View {
         VStack {
             if let product = vm.product {
-                ProductView(product: product)
+                ProductView(brand: product.brand, title: product.title, price: product.price)
             } else {
                 Text("Loading")
             }
